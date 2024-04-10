@@ -1,0 +1,29 @@
+
+
+spring:
+  rabbitmq:
+    host: 192.168.18.128
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    listener:
+      simple:
+        #开启手动ack
+        acknowledge-mode: manual
+        prefetch: 10
+    #新版本，开启消息确认
+    publisher-confirm-type: correlated
+    #老版本
+#    publisher-confirms: true
+    #开启return确认机制
+    publisher-returns: true
+
+
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure:
+            logging: info
